@@ -1,0 +1,33 @@
+CREATE TABLE `sap_real_estate_contract_contract_rythm_term_data`
+(
+  `InternalRealEstateNumber`        varchar(13) NOT NULL,
+  `RETermType`                      varchar(4) NOT NULL,
+  `RETermNumber`                    varchar(4) NOT NULL,
+  `ValidityStartEndDateValue`       varchar(16) NOT NULL,
+  `ValidityStartDate`               varchar(80) DEFAULT NULL,
+  `ValidityEndDate`                 varchar(80) DEFAULT NULL,
+  `RETermName`                      varchar(60) DEFAULT NULL,
+  `RENumberOfFrequencyUnits`        varchar(3) DEFAULT NULL,
+  `REFrequencyUnit`                 varchar(1) DEFAULT NULL,
+  `REStartFrequencyWeek`            varchar(1) DEFAULT NULL,
+  `REFrequencyStart`                varchar(2) DEFAULT NULL,
+  `REConditionAmountReference`      varchar(1) DEFAULT NULL,
+  `REConditionAmountDiff`           varchar(1) DEFAULT NULL,
+  `REProRataMethod`                 varchar(1) DEFAULT NULL,
+  `REProRataMethodCalc`             varchar(1) DEFAULT NULL,
+  `REPaymentForm`                   varchar(1) DEFAULT NULL,
+  `REFrequencyStartDate`            varchar(80) DEFAULT NULL,
+  `REDueDateCorrectionRule`         varchar(4) DEFAULT NULL,
+  `REDueDateNumberOfCrrtnDays`      varchar(16) DEFAULT NULL,
+  `REDueDateNumberOfCrrtnMonths`    varchar(16) DEFAULT NULL,
+  `REDueDateNumberOfCrrtnYears`     varchar(16) DEFAULT NULL,
+  `REDueDateNumberOfCrrtnCalendar`  varchar(16) DEFAULT NULL,
+  `REDueDateCrrtnCalendarUnit`      varchar(2) DEFAULT NULL,
+  `FactoryCalendar`                 varchar(2) DEFAULT NULL,
+  `REDueDateIsAtBeginning`          tinyint(1) DEFAULT NULL,
+  `REDueDateIsAtEnd`                tinyint(1) DEFAULT NULL,
+  `REFixedPeriod`                   varchar(10) DEFAULT NULL,
+    PRIMARY KEY (`InternalRealEstateNumber`, `RETermType`, `RETermNumber`, `ValidityStartEndDateValue`),
+    CONSTRAINT `SAPRealEstateContractContractRythmTermData_fk` FOREIGN KEY (`InternalRealEstateNumber`) REFERENCES `sap_real_estate_contract_contract_data` (`InternalRealEstateNumber`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
